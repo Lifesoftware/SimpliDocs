@@ -1,0 +1,146 @@
+<br>
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+    <div class="dropdown" style="    width: 50%;
+    float: left;">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-plus"
+                aria-hidden="true"></i> My Drive
+            <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            <li><a href="#"><i class="fa fa-folder-o" aria-hidden="true"></i> New Folder</a></li>
+            <li><a href="#" (click)="uploadImage()"> <i class="fa fa-file" aria-hidden="true"></i> Upload File</a></li>
+            <li><a href="#"> <i class="fa fa-folder-open" aria-hidden="true"></i> Upload Folder</a></li>
+        </ul>
+    </div>
+    <button type="button" class="btn btn-primary" *ngIf="GridView" (click)="viewData(1)" style="float: right;">
+        <i class="fa fa-th-list" aria-hidden="true" data-toggle="tooltip" title="List View!"></i></button>
+    <button type="button" class="btn btn-primary" *ngIf="listView" (click)="viewData(2)" style="float: right;    margin-right: 5px;">
+        <i class="fa fa-th-large" aria-hidden="true" data-toggle="tooltip" title="Grid View!"></i></button>
+</div>
+<hr>
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+    <h4>Files</h4>
+</div>
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" *ngIf="GridView" >
+    <div class="col-md-2 col-lg-2 col-sm-3 col-xs-5 grid_demo" *ngFor="let item of documentList" [contextMenu]="basicMenu" [contextMenuSubject]="item">
+        <img src="{{item.Path}}" class="img-thumbnail" alt="Cinque Terre" width="304"
+            height="236">
+        <h6>{{item.DocumentDesc}}</h6>
+    </div>
+    <!-- <div class="col-md-2 col-lg-2 col-sm-3 col-xs-5 grid_demo" [contextMenu]="basicMenu">
+        <img src="https://www.w3schools.com/bootstrap/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304"
+            height="236">
+        <h6>test Document</h6>
+    </div>
+    <div class="col-md-2 col-lg-2 col-sm-3 col-xs-5 grid_demo" [contextMenu]="basicMenu">
+        <img src="https://www.w3schools.com/bootstrap/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304"
+            height="236">
+        <h6>test Document</h6>
+    </div>
+    <div class="col-md-2 col-lg-2 col-sm-3 col-xs-5 grid_demo" [contextMenu]="basicMenu">
+        <img src="https://www.w3schools.com/bootstrap/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304"
+            height="236">
+        <h6>test Document</h6>
+    </div>
+    <div class="col-md-2 col-lg-2 col-sm-3 col-xs-5 grid_demo" [contextMenu]="basicMenu">
+        <img src="https://www.w3schools.com/bootstrap/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304"
+            height="236">
+        <h6>test Document</h6>
+    </div>
+    <div class="col-md-2 col-lg-2 col-sm-3 col-xs-5 grid_demo" [contextMenu]="basicMenu">
+        <img src="https://www.w3schools.com/bootstrap/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304"
+            height="236">
+        <h6>test Document</h6>
+    </div> -->
+</div>
+
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" *ngIf="listView">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Owner</th>
+                <th>Last Modify</th>
+                <th>Size</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of documentList" [contextMenu]="basicMenu">
+                <td>{{item.DocumentDesc}}</td>
+                <td>{{item.UserName}}</td>
+                <td>{{item.CreatedOn}}</td>
+                <td>{{item.IdDocument}}</td>
+            </tr>
+            <!-- <tr [contextMenu]="basicMenu">
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>john@example.com</td>
+                <td>mary@example.com</td>
+            </tr>
+            <tr [contextMenu]="basicMenu">
+                <td>July</td>
+                <td>Dooley</td>
+                <td>john@example.com</td>
+                <td>july@example.com</td>
+            </tr> -->
+        </tbody>
+    </table>
+</div>
+<!-- <ul>
+    <li *ngFor="let item of items" [contextMenu]="basicMenu" [contextMenuSubject]="item">Right Click: {{item?.name}}</li>
+</ul> -->
+<context-menu>
+    <ng-template contextMenuItem (execute)="showMessage($event.item,1)">
+            <i class="fa fa-eye" aria-hidden="true"></i>  Preview
+    </ng-template>
+    <ng-template contextMenuItem divider="true"></ng-template>
+    <!-- <ng-template contextMenuItem (execute)="showMessage('Hi, ' + $event.item.name)">
+            <i class="fa fa-arrows-alt" aria-hidden="true"></i> OpenWith
+    </ng-template> -->
+    <!-- <ng-template contextMenuItem divider="true"></ng-template> -->
+    <ng-template contextMenuItem (execute)="showMessage($event.item,2)">
+            <i class="fa fa-share-alt-square" aria-hidden="true"></i> Share
+    </ng-template>
+    <ng-template contextMenuItem divider="true"></ng-template>
+    <ng-template contextMenuItem (execute)="showMessage($event.item,3)">
+            <i class="fa fa-star" aria-hidden="true"></i>  Add Starred
+    </ng-template>
+    <ng-template contextMenuItem divider="true"></ng-template>
+    <!-- <ng-template contextMenuItem (execute)="showMessage('Hi, ' + $event.item.name)">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> reName
+    </ng-template> -->
+    <!-- <ng-template contextMenuItem divider="true"></ng-template> -->
+    <ng-template contextMenuItem (execute)="showMessage($event.item,4)">
+            <i class="fa fa-info-circle" aria-hidden="true"></i> ViewDetails
+    </ng-template>
+</context-menu>
+<input #fileInput id="fileInput" type="file" (change)="addFile()" multiple style="display: none" [(ngModel)]="filedata">
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-md">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" style="float: right;margin-right: 8px;background-color: #bd081c" class="btn btn-primary"><i class="fa fa-download" aria-hidden="true"></i></button>
+            <button type="button" style="float: right;margin-right: 8px;background-color: orangered" class="btn btn-success"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+          <h4 class="modal-title">Gallery</h4>
+        </div>
+        <div class="modal-body">
+            <div class="w3-content w3-display-container">
+                <ng-container *ngFor="let item of documentList" >
+                <img class="mySlides" src="{{item.Path}}" style="width:100%">
+                <!-- <img class="mySlides" src="img_lights.jpg" style="width:100%">
+                <img class="mySlides" src="img_mountains.jpg" style="width:100%">
+                <img class="mySlides" src="img_forest.jpg" style="width:100%"> -->
+              </ng-container>
+                <button class="w3-button w3-black w3-display-left" (click)="plusDivs(-1)">&#10094;</button>
+                <button class="w3-button w3-black w3-display-right" (click)="plusDivs(1)">&#10095;</button>
+              </div>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> -->
+      </div>
+  
+    </div>
+  </div>

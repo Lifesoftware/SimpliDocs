@@ -1,0 +1,18 @@
+{
+    "Title": "Translation example",
+    "Intro": "Hello I am {{name}}, I am {{age}} years old.",
+    "View Site" : "View Site",
+    "With Complaints" : "With Complaints",
+    "With Folllowups" :"With Folllowups",
+    "Date From" : "Date From",
+    "Date To" : "Date To",
+    "Select Organization" :"Select Organization",
+    "#Id" : "#Id",
+    "Project Name" :"Project Name",
+    "OWNER" : "OWNER",
+    "VISIT DATE" :"VISIT DATE",
+    "VISIT TIME" :"VISIT TIME",
+    "COMPLAINTS" :"COMPLAINTS",
+    "FOLLOWERS" : "FOLLOWERS",
+    "Actions" :"Actions"
+}

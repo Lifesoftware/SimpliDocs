@@ -1,0 +1,333 @@
+/* You can add global styles to this file, and also import other style files */
+
+.modal {
+  text-align: center;
+  padding: 0 !important;
+  overflow-y: scroll;
+}
+
+.modal:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+.mySlides {display:none;}
+
+
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+.vl {
+  border-left: 2px solid #006eba;
+  height: 20px;
+}
+
+.dashboard-box-headering {
+  font-size: 20px;
+}
+.dashboard-box {
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  height: 160px;
+  color: #006eba;
+  font-size: 16px;
+}
+
+div.show-image input.delete {
+  top: 0;
+  left: 79%;
+}
+.AudioTag audio {
+  width: 100%;
+}
+
+#myBtn {
+  display: block;
+  position: fixed;
+  bottom: 50px;
+  right: 64px;
+  float: right;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #337ab7;
+  color: white;
+  cursor: pointer;
+  padding: 7px;
+  border-radius: 50%;
+  font-size: 23px;
+  margin-right: 11px;
+  width: 45px;
+  margin-top: 34px;
+}
+
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid #337ab7;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+
+.audioBtn .audio button {
+  font-size: 20px;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 28px;
+    left: 28px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: -1px;
+    left: -1px;
+    width: 58px;
+    height: 58px;
+    opacity: 0;
+  }
+}
+
+.logodropdown {
+  width: 300px;
+}
+.logodropdown > li > a {
+  padding: 9px 0px !important;
+  text-align: center;
+}
+.logodropdown > li > a > p {
+  font-weight: bold;
+  margin: 5px 0 10px !important;
+  font-size: 11px;
+  font-family: sans-serif;
+  display: block;
+  line-height: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 84px;
+  text-overflow: ellipsis;
+}
+
+.logodropdown li {
+  width: 33%;
+  float: left;
+}
+
+.logodropdown {
+  padding: 0;
+}
+.navbar .navbar-right > li > .dropdown-menu:before,
+.navbar .nav > li > .dropdown-menu.navbar-right:before {
+  right: 12px;
+  left: auto;
+}
+
+.navbar .navbar-right > li > .dropdown-menu:after,
+.navbar .nav > li > .dropdown-menu.navbar-right:after {
+  right: 13px;
+  left: auto;
+}
+
+.open .gb_vb {
+  border-color: transparent;
+  border-bottom-color: #000;
+  border-style: dashed dashed solid;
+  border-width: 0 8.5px 8.5px;
+  display: block;
+  position: absolute;
+  left: 16.5px;
+  top: 43px;
+  z-index: 1;
+  height: 0;
+  width: 0;
+  -webkit-animation: gb__a 0.2s;
+  animation: gb__a 0.2s;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+/* Webkit browsers like Safari and Chrome */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.navbar-top-links .dropdown-messages, .navbar-top-links .dropdown-tasks, .navbar-top-links .dropdown-alerts
+{
+  width: 310px;
+    min-width: 0;
+}
+body { padding-right: 0 !important }
+agm-info-window
+{
+  background: red;
+}
+
+ss-multiselect-dropdown .dropdown-item
+{
+  width: 100%;
+  float: left;
+  padding: 0px 0px 5px 7px;;
+}
+
+ss-multiselect-dropdown  #basic-addon1
+{
+  display: none;
+}
+.primary
+{
+  color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+    font-size: 14px;
+    line-height: 1.42857143;
+    font-weight: 500!important;
+}
+
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+.top10
+{
+  margin-top: 10px;
+}
+@media only screen and (min-device-width : 230px) and (max-device-width : 480px) {
+.top10Mobile
+{
+  margin-top: 10px;
+}
+.paddingnone
+{
+  padding: 0;
+}
+.marginleft{
+  margin-left: 15px;
+}
+
+
+}
+.username {
+  font-size: 13px;
+  text-align: center;
+  padding: 7px 6px 8px;
+  font-weight: bold;
+  width: 100%;
+}
+.dropdown-menu li a .fa-unlock-alt{
+color: #3777bc;
+padding-right: 11px;
+padding-left: 7px;
+  font-size: 16px;
+}
+.dropdown-menu li a .fa-sign-out{
+color: #3777bc;
+  padding-right: 11px;
+font-size: 16px;
+padding-left: 7px;
+}
+.green_icon{
+  background-color: #337ab7;
+  position: absolute;
+  left: 55px;
+  bottom: 84px;
+  height: 11px;
+  font-size: 16px;
+  width: 10px;
+  padding: 8px 13px 10px 5px;
+  /* border: 5px solid white; */
+  border-radius: 50%;
+  line-height: 2px;
+  color: #fff;
+}
+.icon-bar {
+  position: fixed;
+  bottom: 61px;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 5px 20px 3px 23px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 25px;
+}
+
+.facebook {
+  background: #337ab7;
+  color: white;
+}
+.alert-contact{
+  background: #ddd;
+  color: #292222;
+  font-size: 16px;
+}
+.grid_demo
+{
+  border: 1px solid #cac5c5;
+  padding-top: 15px;
+  margin-left: 23px;
+    margin-bottom: 10px;
+}

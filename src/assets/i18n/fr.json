@@ -1,0 +1,18 @@
+
+{
+    "Title": "Exemp",
+    "Intro": "Bonjour je m'appelle {{name}}, j'ai {{age}} ans.",
+    "View Site" : "मेरी साइट",
+    "With Complaints" : "शिकायत के साथ",
+    "With Folllowups" :"फ़ॉललोवॉप्स के साथ",
+    "Date From" : "दिनांक से",
+    "Date To" : "तिथि करने के लिए",
+    "Select Organization" :"संगठन चुनें",
+    "#Id" : "#ID",
+    "Project Name" :"प्रोजेक्ट का नाम",
+    "VISIT DATE" :"VISIT DATE",
+    "VISIT TIME" :"यात्रा का समय",
+    "COMPLAINTS" :"शिकायतें",
+    "FOLLOWERS" : "अनुयायियों",
+    "Actions" :"स्टॉक"
+}

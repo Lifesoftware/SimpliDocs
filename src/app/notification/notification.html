@@ -1,0 +1,51 @@
+
+<div class="col-lg-12" style="margin-top: 20px">
+<div class="panel panel-default top10 ">
+    <div class="panel-heading">
+        You have following Notifications
+    </div>
+    <div class="panel-body">
+        <div class="row col-lg-12 top10" *ngIf=" notificationList?.length == 0 || notificationList == null">
+            <div class=" alert-success">
+                <strong class="col-sm-2">Information: </strong>
+                <label class="control-label-left col-sm-10 fontweight">All Message caught up !</label>
+            </div>
+        </div>
+        <div class="row" *ngIf="notificationList?.length > 0">
+            <div class="col-lg-12 ">
+                <div class="table-responsive ">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="bg-info">
+                                <th>Raised By</th>
+                                <th>Alert Message</th>
+                                <th>Raised On</th>
+                                <!--<th>Action</th>-->
+                                <th>
+                                    <i class="fa fa-trash btn-custom-icon" style="width:25px; height:20px;margin-right: 3px;" aria-hidden="true" (click)="resetAllNotification()">                                          
+                                        </i> Delete All
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <!-- redirectFun(notificationTo)" -->
+                            <tr style="cursor: pointer" *ngFor=" let notificationTo of notificationList " [style.font-weight]="getValidationColor(notificationTo.IsAcknowledged)">
+                                <td (click)="markAsReadToNotification(notificationTo)">{{notificationTo.RaisedByUserName}}</td>
+                                <td (click)="markAsReadToNotification(notificationTo)">{{notificationTo.AlertComment}}</td>
+                                <td (click)="markAsReadToNotification(notificationTo)">{{notificationTo.RaisedOnStr}}</td>
+                                <td>
+                                    <p style="width: 50px;margin: 0px">
+                                        <i class="fa fa-trash btn-custom-icon" style="width:20px; height:20px;margin-right: 3px;" aria-hidden="true" (click)="markAsReadToNotification(notificationTo, true)"></i>
+                                    </p>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>

@@ -1,0 +1,15 @@
+{
+  "debugging": true,
+  "Schedule_API_ENDPOINTS": "https://simplydeliverdemo.vegainnovations.co.in/brmsimplischeduleapi/api/",
+  "Resolve_API_ENDPOINTS": "https://simplydeliverdemo.vegainnovations.co.in/brmsimpliresolveapi/api/",
+  "MASTER_API_ENDPOINTS": "https://simplydeliverdemo.vegainnovations.co.in/brmsimplideliverapi/api/",
+  "CRM_API_ENDPOINTS": "https://simplydeliverdemo.vegainnovations.co.in/brmsimplicrmapi/api/V1/",
+  "SimpliScheduleURL":"https://simplydeliverdemo.vegainnovations.co.in/brmsimplischedule/",
+  "MasterRedirectionUrl":"https://simplydeliverdemo.vegainnovations.co.in/brmsimpliworks/",
+  "isProductionEnabled":true, 
+  "PDF_OPTION":2,
+  "FeedBack_Show_Level":3,
+  "gift_API_ID":"137",
+  "personDefaultEmailsList":["abc@gmail.com"],
+  "PossibilityofconversionFactor":50
+}

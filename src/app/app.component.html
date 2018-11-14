@@ -1,0 +1,22 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div *ngIf="login.isLogin">
+    <div id="main-header">
+        <app-header [MasterRedirectionUrl]="masterRedirectionUrl" appName="CRM" [BaseURL]="baseUrl" systemId ="2" [isProductionEnabled]="isProduction"></app-header>
+    </div>
+    <div id="snackbar">Some text some message..</div>
+</div>
+<div id="page-wrapper" *ngIf="login.isLoginNotLogin">
+    <login></login>
+</div>
+<!-- <followps-content id="followpsContent" (afterSubmitFollowps)="afterSubmitFollowps($event)" (afterSubmitComplaints)="afterSubmitComplaints($event)"></followps-content> -->
+<div id="page-wrapper" *ngIf="login.isLogin">
+    <crm-menu></crm-menu>
+    <ng4-loading-spinner> </ng4-loading-spinner>
+    <router-outlet></router-outlet>
+    <chat-app [masterUrl]="baseUrl" [loginUser]="UserTO?.IdUser"></chat-app>
+</div>
+
+<footer class="footer-basic-centered">
+    <p class="footer-company-name">Powered By Vega Innovations</p>
+</footer>
+<support-component [URL]="baseUrl"></support-component>

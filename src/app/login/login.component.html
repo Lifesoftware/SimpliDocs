@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+      <div class="col-lg-12 loginSection">
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h3>Login</h3>
+              </div>
+              <div class="panel-body">
+                  <section class="loginVersion">
+                      <h5>SimpliCRM 1.0.0</h5>
+                  </section>
+                  <section class="loginFormSection ">
+                      <form role="form" [formGroup]="loginGroup" (ngSubmit)="login()">
+                          <fieldset>
+
+                            <div class="form-group">
+                                <input class="form-control" placeholder="User ID" [(ngModel)]="userTo.UserLogin" formControlName="UserLogin" autofocus required>
+                            </div>
+                            <p for="usrErrorMsg" class="alert-danger">{{usrErrorMsg}}</p>
+
+                            <div class="form-group">
+                                <input class="form-control" required placeholder="Password" [(ngModel)]="userTo.UserPasswd" formControlName="UserPasswd" type="password"  value="">
+                            </div>
+                            <p for="pswdErrorMsg" class="alert-danger">{{pswdErrorMsg}}</p>
+                            
+                            <div class="form-group alert alert-danger" *ngIf="isLogFailed">
+                                <label for="errorMsg">{{errorMessage}}</label>
+                            </div> 
+                            <!-- Change this to a button or input when using this as a form -->
+                            <div class="form-group">
+                                    <button [disabled]="loading" class="btn btn-primary" type="submit" [disabled]="!loginGroup.valid">Login</button>
+                                    <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+                                    />
+                            </div>                         
+                        
+                          </fieldset>
+                      </form>
+                  </section>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
