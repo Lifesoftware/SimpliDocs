@@ -20,42 +20,73 @@
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
     <h4>Files</h4>
 </div>
-<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" *ngIf="GridView" >
-    <div class="col-md-2 col-lg-2 col-sm-3 col-xs-5 grid_demo" *ngFor="let item of documentList" [contextMenu]="basicMenu" [contextMenuSubject]="item">
-        <img src="{{item.Path}}" class="img-thumbnail" alt="Cinque Terre" width="304"
-            height="236">
-        <h6>{{item.DocumentDesc}}</h6>
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+    <div class="alert alert-info" *ngIf="documentList.length == 0">
+        <strong>Info!</strong> Document Not Found.
     </div>
-    <!-- <div class="col-md-2 col-lg-2 col-sm-3 col-xs-5 grid_demo" [contextMenu]="basicMenu">
-        <img src="https://www.w3schools.com/bootstrap/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304"
-            height="236">
-        <h6>test Document</h6>
+</div>
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" *ngIf="GridView  && documentList.length > 0">
+    <div class="col-md-2 col-lg-2 col-sm-3 col-xs-5 grid_demo" *ngFor="let item of documentList" [contextMenu]="basicMenu"
+        [contextMenuSubject]="item">
+        <div *ngIf="HtmlViewSortByExtension(item.Path) == fileExtensionsCodes.IMAGE">
+            <img src="{{item.Path}}" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
+            <span style="word-break: break-word;font-size: 11px;">{{item.DocumentDesc}}</span>
+            <i class="fa fa-picture-o" style="float: right;margin-top: 3px;color: #e33f8b;" aria-hidden="true"></i>
+        </div>
+        <div *ngIf="HtmlViewSortByExtension(item.Path) == fileExtensionsCodes.DOC">
+            <img src="../../assets/images/doc.png" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"
+                style="height: 135px;">
+            <span style="word-break: break-word;font-size: 11px;">{{item.DocumentDesc}}</span>
+            <i class="fa fa-file" style="float: right;margin-top: 3px;" aria-hidden="true"></i>
+        </div>
+        <div *ngIf="HtmlViewSortByExtension(item.Path) == fileExtensionsCodes.PDF">
+            <img src="../../assets/images/pdf.png" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"
+                style="height: 135px;">
+            <span style="word-break: break-word;font-size: 11px;">{{item.DocumentDesc}}</span>
+            <i class="fa fa-file-pdf-o" style="float: right;margin-top: 3px;color:red;" aria-hidden="true"></i>
+        </div>
+        <div *ngIf="HtmlViewSortByExtension(item.Path) == fileExtensionsCodes.TEXT">
+            <img src="../../assets/images/text.png" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"
+                style="height: 135px;">
+            <span style="word-break: break-word;font-size: 11px;">{{item.DocumentDesc}}</span>
+            <i class="fa fa-file-text-o" style="float: right;margin-top: 3px;" aria-hidden="true"></i>
+        </div>
+        <div *ngIf="HtmlViewSortByExtension(item.Path) == fileExtensionsCodes.EXEL">
+            <img src="../../assets/images/xls.png" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"
+                style="height: 135px;">
+            <span style="word-break: break-word;font-size: 11px;">{{item.DocumentDesc}}</span>
+            <i class="fa fa-file-excel-o" style="float: right;margin-top: 3px;" aria-hidden="true"></i>
+        </div>
+        <div *ngIf="HtmlViewSortByExtension(item.Path) == fileExtensionsCodes.VIDEO">
+            <img src="../../assets/images/video.png" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"
+                style="height: 135px;">
+            <span style="word-break: break-word;font-size: 11px;">{{item.DocumentDesc}}</span>
+            <i class="fa fa-file-video-o" style="float: right;margin-top: 3px;" aria-hidden="true"></i>
+        </div>
+        <div *ngIf="HtmlViewSortByExtension(item.Path) == fileExtensionsCodes.AUDIO">
+            <img src="../../assets/images/mp3.png" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"
+                style="height: 135px;">
+            <span style="word-break: break-word;font-size: 11px;">{{item.DocumentDesc}}</span>
+            <i class="fa fa-file-audio-o" style="float: right;margin-top: 3px;" aria-hidden="true"></i>
+        </div>
+        <div *ngIf="HtmlViewSortByExtension(item.Path) == fileExtensionsCodes.ZIP">
+            <img src="../../assets/images/zip.png" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"
+                style="height: 135px;">
+            <span style="word-break: break-word;font-size: 11px;">{{item.DocumentDesc}}</span>
+            <i class="fa fa-file-archive-o" style="float: right;margin-top: 3px;" aria-hidden="true"></i>
+        </div>
+        <div *ngIf="HtmlViewSortByExtension(item.Path) == fileExtensionsCodes.OTHER">
+            <img src="../../assets/images/doc.png" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"
+                style="height: 135px;">
+            <span style="word-break: break-word;font-size: 11px;">{{item.DocumentDesc}}</span>
+            <i class="fa fa-picture-o" style="float: right;margin-top: 3px;" aria-hidden="true"></i>
+        </div>
     </div>
-    <div class="col-md-2 col-lg-2 col-sm-3 col-xs-5 grid_demo" [contextMenu]="basicMenu">
-        <img src="https://www.w3schools.com/bootstrap/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304"
-            height="236">
-        <h6>test Document</h6>
-    </div>
-    <div class="col-md-2 col-lg-2 col-sm-3 col-xs-5 grid_demo" [contextMenu]="basicMenu">
-        <img src="https://www.w3schools.com/bootstrap/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304"
-            height="236">
-        <h6>test Document</h6>
-    </div>
-    <div class="col-md-2 col-lg-2 col-sm-3 col-xs-5 grid_demo" [contextMenu]="basicMenu">
-        <img src="https://www.w3schools.com/bootstrap/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304"
-            height="236">
-        <h6>test Document</h6>
-    </div>
-    <div class="col-md-2 col-lg-2 col-sm-3 col-xs-5 grid_demo" [contextMenu]="basicMenu">
-        <img src="https://www.w3schools.com/bootstrap/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304"
-            height="236">
-        <h6>test Document</h6>
-    </div> -->
 </div>
 
-<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" *ngIf="listView">
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" *ngIf="listView && documentList.length > 0">
     <table class="table table-striped">
-        <thead>
+        <thead style="background: #bce8f1;">
             <tr>
                 <th>Name</th>
                 <th>Owner</th>
@@ -64,83 +95,220 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of documentList" [contextMenu]="basicMenu">
+            <tr *ngFor="let item of documentList" [contextMenu]="basicMenu" style="color: rgba(0,0,0,.72);
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 46px;
+            text-overflow: ellipsis;
+            vertical-align: top;
+            white-space: nowrap;">
                 <td>{{item.DocumentDesc}}</td>
                 <td>{{item.UserName}}</td>
                 <td>{{item.CreatedOn}}</td>
                 <td>{{item.IdDocument}}</td>
             </tr>
-            <!-- <tr [contextMenu]="basicMenu">
-                <td>Mary</td>
-                <td>Moe</td>
-                <td>john@example.com</td>
-                <td>mary@example.com</td>
-            </tr>
-            <tr [contextMenu]="basicMenu">
-                <td>July</td>
-                <td>Dooley</td>
-                <td>john@example.com</td>
-                <td>july@example.com</td>
-            </tr> -->
         </tbody>
     </table>
 </div>
-<!-- <ul>
-    <li *ngFor="let item of items" [contextMenu]="basicMenu" [contextMenuSubject]="item">Right Click: {{item?.name}}</li>
-</ul> -->
+
 <context-menu>
-    <ng-template contextMenuItem (execute)="showMessage($event.item,1)">
-            <i class="fa fa-eye" aria-hidden="true"></i>  Preview
+    <ng-template contextMenuItem (execute)="ShowPreview($event.item)">
+        <i class="fa fa-eye" aria-hidden="true"></i> Preview
     </ng-template>
     <ng-template contextMenuItem divider="true"></ng-template>
-    <!-- <ng-template contextMenuItem (execute)="showMessage('Hi, ' + $event.item.name)">
-            <i class="fa fa-arrows-alt" aria-hidden="true"></i> OpenWith
-    </ng-template> -->
-    <!-- <ng-template contextMenuItem divider="true"></ng-template> -->
-    <ng-template contextMenuItem (execute)="showMessage($event.item,2)">
-            <i class="fa fa-share-alt-square" aria-hidden="true"></i> Share
+    <ng-template contextMenuItem (execute)="ShareDocumentToUser($event.item)">
+        <i class="fa fa-share-alt-square" aria-hidden="true"></i> Share
     </ng-template>
     <ng-template contextMenuItem divider="true"></ng-template>
     <ng-template contextMenuItem (execute)="showMessage($event.item,3)">
-            <i class="fa fa-star" aria-hidden="true"></i>  Add Starred
+        <i class="fa fa-star" aria-hidden="true"></i> Add Starred
     </ng-template>
     <ng-template contextMenuItem divider="true"></ng-template>
-    <!-- <ng-template contextMenuItem (execute)="showMessage('Hi, ' + $event.item.name)">
-            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> reName
-    </ng-template> -->
-    <!-- <ng-template contextMenuItem divider="true"></ng-template> -->
+    <ng-template contextMenuItem (execute)="viewDetails($event.item)">
+        <i class="fa fa-info-circle" aria-hidden="true"></i> ViewDetails
+    </ng-template>
+    <ng-template contextMenuItem divider="true"></ng-template>
     <ng-template contextMenuItem (execute)="showMessage($event.item,4)">
-            <i class="fa fa-info-circle" aria-hidden="true"></i> ViewDetails
+        <i class="fa fa-download" aria-hidden="true"></i> Download
     </ng-template>
 </context-menu>
 <input #fileInput id="fileInput" type="file" (change)="addFile()" multiple style="display: none" [(ngModel)]="filedata">
-<div id="myModal" class="modal fade" role="dialog">
+<div id="Preview" class="modal fade" role="dialog">
     <div class="modal-dialog modal-md">
-  
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <button type="button" style="float: right;margin-right: 8px;background-color: #bd081c" class="btn btn-primary"><i class="fa fa-download" aria-hidden="true"></i></button>
-            <button type="button" style="float: right;margin-right: 8px;background-color: orangered" class="btn btn-success"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
-          <h4 class="modal-title">Gallery</h4>
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button type="button" style="float: right;margin-right: 8px;background-color: #bd081c" class="btn btn-primary"><i
+                        class="fa fa-download" aria-hidden="true"></i></button>
+                <button type="button" style="float: right;margin-right: 8px;background-color: orangered" class="btn btn-success"><i
+                        class="fa fa-share-alt" aria-hidden="true"></i></button>
+                <h4 class="modal-title">Gallery</h4>
+            </div>
+            <div class="modal-body">
+                <div class="w3-content w3-display-container">
+                    <ng-container *ngFor="let item of documentList">
+                        <!-- <img class="mySlides" src="{{item.Path}}" style="width:100%"> -->
+                        <div class="mySlides" *ngIf="HtmlViewSortByExtension(item.Path) == fileExtensionsCodes.IMAGE">
+                            <span style="word-break: break-word;font-size: 11px;font-weight: bold;">{{item.DocumentDesc}}</span>
+                            <img src="{{item.Path}}" class="img-thumbnail" alt="Cinque Terre" style="width:100%" width="304"
+                                height="236">
+                        </div>
+                        <div class="mySlides" *ngIf="HtmlViewSortByExtension(item.Path) == fileExtensionsCodes.DOC">
+                            <span style="word-break: break-word;font-size: 11px;font-weight: bold;">{{item.DocumentDesc}}</span>
+                            <img src="../../assets/images/doc.png" class="img-thumbnail" style="width:100%;height: 258px;"
+                                alt="Cinque Terre" width="304" height="236">
+                        </div>
+                        <div class="mySlides" *ngIf="HtmlViewSortByExtension(item.Path) == fileExtensionsCodes.PDF">
+                            <span style="word-break: break-word;font-size: 11px;font-weight: bold;">{{item.DocumentDesc}}</span>
+                            <img src="../../assets/images/pdf.png" class="img-thumbnail" style="width:100%;height: 258px;"
+                                alt="Cinque Terre" width="304" height="236">
+
+                        </div>
+                        <div class="mySlides" *ngIf="HtmlViewSortByExtension(item.Path) == fileExtensionsCodes.TEXT">
+                            <span style="word-break: break-word;font-size: 11px;font-weight: bold;">{{item.DocumentDesc}}</span>
+                            <img src="../../assets/images/text.png" class="img-thumbnail" style="width:100%;height: 258px;"
+                                alt="Cinque Terre" width="304" height="236">
+
+                        </div>
+                        <div class="mySlides" *ngIf="HtmlViewSortByExtension(item.Path) == fileExtensionsCodes.EXEL">
+                            <span style="word-break: break-word;font-size: 11px;font-weight: bold;">{{item.DocumentDesc}}</span>
+                            <img src="../../assets/images/xls.png" class="img-thumbnail" style="width:100%;height: 258px;"
+                                alt="Cinque Terre" width="304" height="236">
+                        </div>
+                        <div class="mySlides" *ngIf="HtmlViewSortByExtension(item.Path) == fileExtensionsCodes.VIDEO">
+                            <span style="word-break: break-word;font-size: 11px;font-weight: bold;">{{item.DocumentDesc}}</span>
+                            <img src="../../assets/images/video.png" class="img-thumbnail" style="width:100%;height: 258px;"
+                                alt="Cinque Terre" width="304" height="236">
+
+                        </div>
+                        <div class="mySlides" *ngIf="HtmlViewSortByExtension(item.Path) == fileExtensionsCodes.AUDIO">
+                            <span style="word-break: break-word;font-size: 11px;font-weight: bold;">{{item.DocumentDesc}}</span>
+                            <img src="../../assets/images/mp3.png" class="img-thumbnail" style="width:100%;height: 258px;"
+                                alt="Cinque Terre" width="304" height="236">
+
+                        </div>
+                        <div class="mySlides" *ngIf="HtmlViewSortByExtension(item.Path) == fileExtensionsCodes.ZIP">
+                            <span style="word-break: break-word;font-size: 11px;font-weight: bold;">{{item.DocumentDesc}}</span>
+                            <img src="../../assets/images/zip.png" class="img-thumbnail" sstyle="width:100%;height: 258px;"
+                                alt="Cinque Terre" width="304" height="236">
+
+                        </div>
+                        <div class="mySlides" *ngIf="HtmlViewSortByExtension(item.Path) == fileExtensionsCodes.OTHER">
+                            <span style="word-break: break-word;font-size: 11px;font-weight: bold;">{{item.DocumentDesc}}</span>
+                            <img src="../../assets/images/doc.png" class="img-thumbnail" style="width:100%;height: 258px;"
+                                alt="Cinque Terre" width="304" height="236">
+
+                        </div>
+                    </ng-container>
+                    <button class="w3-button w3-black w3-display-left" (click)="plusDivs(-1)">Pre</button>
+                    <button class="w3-button w3-black w3-display-right" (click)="plusDivs(1)">Next</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-            <div class="w3-content w3-display-container">
-                <ng-container *ngFor="let item of documentList" >
-                <img class="mySlides" src="{{item.Path}}" style="width:100%">
-                <!-- <img class="mySlides" src="img_lights.jpg" style="width:100%">
-                <img class="mySlides" src="img_mountains.jpg" style="width:100%">
-                <img class="mySlides" src="img_forest.jpg" style="width:100%"> -->
-              </ng-container>
-                <button class="w3-button w3-black w3-display-left" (click)="plusDivs(-1)">&#10094;</button>
-                <button class="w3-button w3-black w3-display-right" (click)="plusDivs(1)">&#10095;</button>
-              </div>
-        </div>
-        <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div> -->
-      </div>
-  
+
     </div>
-  </div>
+</div>
+<div id="ShareDocument" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Share with Others</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <a style="float:right;cursor: pointer;">Get Shareable Link <i class="fa fa-random" aria-hidden="true"></i></a>
+                        <br>
+                    </div>
+                    <hr>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <label for="email">Pepole:</label>
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <ng-select [items]="userList" [multiple]="true" [clearable]="true" bindLabel="text"
+                                    bindValue="value" placeholder="Select Users" [(ngModel)]="multiplePurpose">
+                                </ng-select>
+                                <div class="form-group" style="display:none;">
+                                    <input class="form-control" [(ngModel)]="multiplePurpose">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Description:</label>
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                                <div class="form-group">
+                                    <textarea class="form-control" [(ngModel)]="shareDescription"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+
+                            <span class="label " style="margin-right:5px" *ngFor="let item of multiplePurpose ;let index = index"
+                                [class.label-success]="index%2==1" [class.label-info]="index%2==0">{{getUserNameusingFilter(item)}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="shareDocumentTomultipleUser()">Done</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="viewDetails" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Details</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+                            <h5>Type</h5>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+                            <p>-</p>
+                        </div>
+                        <hr>
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+                            <p>Storage used</p>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+                            <p>Sed ut perspiciatis...</p>
+                        </div>
+                        <hr>
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+                            <p>Location</p>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+                            <p>Pune</p>
+                        </div>
+                        <hr>
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+                            <p>Owner</p>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+                            <p>Me</p>
+                        </div>
+                        <hr>
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+                            <p>Created</p>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+                            <p>2012-20-88</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

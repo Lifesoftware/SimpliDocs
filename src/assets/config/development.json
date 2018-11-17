@@ -2,7 +2,7 @@
   "debugging": true,
   "Schedule_API_ENDPOINTS": "https://polaadsimplischeduleapi.azurewebsites.net/api/",
   "Resolve_API_ENDPOINTS": "https://polaadsimpliresolveapi.azurewebsites.net/api/",
-  "MASTER_API_ENDPOINTS": "https://stapiservice.azurewebsites.net/api/",
+  "MASTER_API_ENDPOINTS": "http://localhost:64942/api/",
   "CRM_API_ENDPOINTS": "https://polaadcrmapi.azurewebsites.net/api/V1/",
   "SimpliScheduleURL":"https://schedulepolaad.vegainnovations.co.in/",
   "MasterRedirectionUrl":"https://simpliworkspolaad.vegainnovations.co.in",

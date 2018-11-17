@@ -8,7 +8,8 @@ import {Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { CommonModule } from '@angular/common';  
 import {HttpModule} from '@angular/http'
 import {ContextMenuModule} from 'ngx-contextmenu'
-import {commonService} from '../common/service/common.service'
+import {commonService} from '../common/service/common.service';
+import { NgSelectModule } from '@ng-select/ng-select';
 import { from } from 'rxjs/observable/from';
 const routeCnfig: Routes = [
     {
@@ -20,7 +21,7 @@ const routeCnfig: Routes = [
 @NgModule({
     imports: [
         FormsModule,ContextMenuModule.forRoot(),
-        ReactiveFormsModule,CommonModule,HttpModule,
+        ReactiveFormsModule,CommonModule,HttpModule,NgSelectModule,
         RouterModule.forChild(routeCnfig)
 
     ],

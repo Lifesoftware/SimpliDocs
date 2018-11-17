@@ -22,11 +22,11 @@ export const routeConfig: Routes = [
     },
     {
         path : 'shareWithMe'
-        , loadChildren : './shareWithMe/shareWithMe_module#shareWithMeModule' , canActivate : [AuthGuard]
+        , loadChildren : './dashboard/dashboard_module#DashboardModule' , canActivate : [AuthGuard]
     },
     {
         path : 'Starred'
-        , loadChildren : './Starred/Starred_module#StarredModule' , canActivate : [AuthGuard]
+        , loadChildren : './dashboard/dashboard_module#DashboardModule' , canActivate : [AuthGuard]
     },
     {
         path : 'Recent'

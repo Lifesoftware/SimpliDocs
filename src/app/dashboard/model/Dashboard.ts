@@ -6,6 +6,15 @@
 
     public influencerVisit?:Visit
 }
+export class MasterDropdownListTO{
+    constructor(){}
+    
+    public Text? : string
+    public Value? : number
+    public Tag? : string
+    
+    
+}
 
 export class DealerDashboardTo{ 
     public idorganization?:number
@@ -40,4 +49,17 @@ export class ReportModel
     updatedBy?:number
     projectStatusName?:string
     statusId?:number
+}
+
+export enum fileExtensions
+{
+    IMAGE = 1,
+    AUDIO = 2,
+    VIDEO = 3,
+    DOC =4,
+    PDF = 5,
+    TEXT = 6,
+    EXEL = 7,
+    ZIP = 8,
+    OTHER = 9
 }
